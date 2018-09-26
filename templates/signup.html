@@ -1,13 +1,7 @@
 {% extends "base.html"%}       
 
  {% block content%}
-     <head>
-         <style>
-          .error {color:red;}
-          br {margin-bottom: 20px;}
-         </style>
-     </head>           
-       
+ 
        <h1>Signup</h1>
         <form action='/sign-up' method = 'POST'>
             <label>Username: 
@@ -16,11 +10,11 @@
             <br>
             
             <label>Password
-                <input  type="password" minlength="3" maxlength="20" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" name="pwd1"/>
+                <input  type="password" minlength="3" maxlength="20" required pattern="^[A-Za-z][A-Za-z0-9]*$" name="pwd1"/>
             </label>
             <br>
             <label>Verify Password:
-                <input  type="password" minlength="3" maxlength="20" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" name="pwd2"/>
+                <input  type="password" minlength="3" maxlength="20" required pattern="^[A-Za-z][A-Za-z0-9]*$" name="pwd2"/>
             </label>
             <p class="error">{{password_error}}</p>
           
@@ -32,6 +26,6 @@
 
             <input type="submit" value ="Submit"/>
         </form>
-        
+    
 
 {%endblock%}

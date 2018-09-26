@@ -20,18 +20,10 @@ def user_signup():
         password_error ='Passwords must match.'
 
     if not password_error:
-        return redirect('/valid-signup')
+        return render_template('welcome_page.html',username=username)
     else:
         email=email
         username=username
         return render_template('signup.html',password_error=password_error, username=username, email=email)
-
-@app.route('/valid-signup',methods=['POST','GET'])
-def valid_signup():
-    username=request.args.get('username')
-    
-    return render_template('welcome_page.html',title="Welcome",username=username)
-
-
 
 app.run()
