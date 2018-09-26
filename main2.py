@@ -12,6 +12,7 @@ def index():
 @app.route("/sign-up", methods=['POST'])
 def user_signup():
     username=request.form['user-name']
+    email=request.form['user-email']
     password_error=''
     password1 = request.form['pwd1']
     password2 = request.form['pwd2']
@@ -20,17 +21,17 @@ def user_signup():
 
     if not password_error:
         return redirect('/valid-signup')
-
     else:
+        email=email
         username=username
-        return render_template('signup.html',password_error=password_error, username=username)
+        return render_template('signup.html',password_error=password_error, username=username, email=email)
 
-   
-
-@app.route('/valid-signup')
+@app.route('/valid-signup',methods=['POST','GET'])
 def valid_signup():
     username=request.args.get('username')
-    return render_template('welcome_page.html',username=username)
+    
+    return render_template('welcome_page.html',title="Welcome",username=username)
+
 
 
 app.run()
