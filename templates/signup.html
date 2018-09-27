@@ -10,16 +10,16 @@ br {
        <h1>Signup</h1>
         <form action='/sign-up' method = 'POST'>
             <label>Username: 
-                <input id="user-name" name="user-name" type = "text" value ='{{username}}' minlength="3" maxlength="20" pattern="^[A-Za-z][A-Za-z0-9]*$" required/>
+                <input id="user-name" name="user-name" type = "text" value ='{{username}}' title ="Username may not contain spaces."minlength="3" maxlength="20" pattern="^[A-Za-z][A-Za-z0-9]*$" required/>
             </label>
             <br>
             
             <label>Password
-                <input  type="password" minlength="3" maxlength="20" required pattern="^[A-Za-z][A-Za-z0-9!@#$%&?]*$" name="pwd1"/>
+                <input  type="password" minlength="3" maxlength="20" title ="Password may not contain any spaces." required pattern="^[A-Za-z][A-Za-z0-9!@#$%&?]*$" name="pwd1"/>
             </label>
             <br>
             <label>Verify Password:
-                <input  type="password" minlength="3" maxlength="20" required pattern="^[A-Za-z][A-Za-z0-9!@#$%&?]*$" name="pwd2"/>
+                <input  type="password" minlength="3" maxlength="20" required title ="Password may not contain any spaces." pattern="^[A-Za-z][A-Za-z0-9!@#$%&?]*$" name="pwd2"/>
             </label>
             <p class="error">{{password_error}}</p>
           
